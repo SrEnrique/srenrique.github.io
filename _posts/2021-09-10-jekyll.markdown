@@ -1,0 +1,167 @@
+---
+layout: post
+title:  "Creando un sitio Web estático con Jekyll"
+date:   2021-09-08 21:30:59 -0700
+categories: jekyll ruby ubuntu
+tags:
+- Creador de contenido
+- Ruby
+- Ubuntu
+---
+Jekyll es una herramienta que nos ayudara a cubrir una necesidad muy puntual, lo usaremos en caso de que necesitemos crear un sitio web estático ya sea para documentar una herramienta, crear un blog o una pagina de comunicados, todo esto de una forma muy fácil y rápida, sin la necesidad de tener un conocimiento amplio en HTML o CSS y sin la necesidad de herramientas que te ayudan a crear tu página web como wex, Blogger o WordPress.
+Todas estas facilidades las tenemos gracias a que usa markdown y templetes liquid, los cuales son muy fáciles de aprender y de visualizar para los creadores, con Jekyll podremos iniciar a generar contenido con muy poco conocimiento en la herramienta.
+
+# Quickstart 
+Vamos a ver cómo podríamos iniciar a crear nuestro blog de una forma muy rápida, después de esto nos vamos a ir detallando un poco mas como darle forma a nuestro blog
+## prerrequisitos
+Antes de iniciar vamos a necesitar
+* Ruby 2.5.0 o superior 
+* RubyGems
+* GCC and make
+
+## Inicio
+
+1.	instalar las gemas Jekyll y bundler
+```console
+gem install jekyll bundler
+```
+
+2.	crear el nuevo sitio con Jekyll
+```console
+jekyll new myblog
+```
+3.	entramos a nuestro directorio 
+```console
+cd myblog
+```
+4.	construir el sitio y levantar nuestro servidor local
+```console
+bundle exec Jekyll server
+```
+
+5. abrir en el navegador la url http://hostname:4000
+
+
+
+# Configurando nuestro blog 
+
+Jekyll nos creo esta estructura de carpetas 
+```
+▾ myblog/
+├── 404.html
+├── about.markdown
+├── _config.yml
+├── Gemfile
+├── Gemfile.lock
+├── index.markdown
+└─▾ _posts
+  └── 2021-09-10-welcome-to-jekyll.markdown
+```
+
+
+editamos el archivo _confg.yml
+```yaml
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Your awesome title
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+```
+
+# Creado nuestros propios posts
+En este punto Jekyll nos creó una estructura de carpetas las cuales tiene todos los archivos que necesitaremos para que de forma fácil, pero aun no hemos creado ningún post.
+Los posts los encontramos en la carpeta _post, para crear un post tenemos que agregar un archivo con el siguiente formato:
+```
+YEAR-MONTH-DAY-title.MARKUP
+```
+Donde `YEAR` es el año en 4 dígitos, `MONTH` es el mes en dos dígitos, `DAY` el día en dos dígitos, y `MARKUP` es el formato de marcado que usaremos, por ejemplo: 
+
+```
+2021-09-10-jekyll.markdown
+```
+
+Todo el contenido de los archivos debe de iniciar con el Front Matter que es usado para indicar el layout y la metadata del archivo, después de esto agregamos nuestro texto en markdown, por ejemplo:
+
+```
+---
+layout: post
+title:  "Hola Mundo, Jekyll!"
+categories: jekyll ruby ubuntu
+tags:
+- Creador de contenido
+- Ruby
+- Ubuntu
+---
+# Bienvenido hola mundo 
+Mucha suerte en tu nuevo proyecto 
+
+```
+
+
+
+# Conclusiones 
+Con estos conocimientos ya puedes iniciar tu proyecto y conseguir resultados profesiones muy rápidamente, la finalidad de estas entradas no es que termines de leer siendo un experto en el tema, sino de generar curiosidad en ti para que continues leyendo ya prendiendo por tu cuenta.
+
+# Next
+En una nueva entrada estaremos aprendiendo a publicar en una pagina web nuestro sitio.
+
+# Referencias   
+[https://github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+
+[https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
+
+[https://yaml.org/](https://yaml.org/)
+
+[https://shopify.github.io/liquid/](https://shopify.github.io/liquid/)
+
+[https://jekyllrb.com/docs/posts/](https://jekyllrb.com/docs/posts/)
