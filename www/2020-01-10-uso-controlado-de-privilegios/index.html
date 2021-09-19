@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Uso controlado de privilegios administrativos</title>
+
+  
+  <meta name="author" content="Luis Enrique Gastelum">
+  
+
+  <meta name="description" content="Los procesos y herramientas utilizados para rastrear, controlar, prevenir y corregir el uso, la asignación y la configuración de privilegios administrativos en computadoras, redes y aplicaciones.¿Por qué es importante este control?El uso indebido de privilegios administrativos es un método principal para que los atacantes se propaguen dentro de una empresa...">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="dotLog" href="/feed.xml">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="dotLog">
+  <meta property="og:title" content="Uso controlado de privilegios administrativos">
+  <meta property="og:description" content="Los procesos y herramientas utilizados para rastrear, controlar, prevenir y corregir el uso, la asignación y la configuración de privilegios administrativos en computadoras, redes y aplicaciones.¿Por qué es importante este control?El uso indebido de privilegios administrativos es un método principal para que los atacantes se propaguen dentro de una empresa...">
+
+  
+  <meta property="og:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Luis Enrique Gastelum">
+  <meta property="og:article:published_time" content="2020-01-10T14:38:00-05:00">
+  <meta property="og:url" content="/2020-01-10-uso-controlado-de-privilegios/">
+  <link rel="canonical" href="/2020-01-10-uso-controlado-de-privilegios/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@srnrique">
+  <meta name="twitter:creator" content="@srnrique">
+
+  <meta property="twitter:title" content="Uso controlado de privilegios administrativos">
+  <meta property="twitter:description" content="Los procesos y herramientas utilizados para rastrear, controlar, prevenir y corregir el uso, la asignación y la configuración de privilegios administrativos en computadoras, redes y aplicaciones.¿Por qué es importante este control?El uso indebido de privilegios administrativos es un método principal para que los atacantes se propaguen dentro de una empresa...">
+
+  
+  <meta name="twitter:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/">dotLog</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tags">Tags</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "HTB cap", \
+          "category" : "hackingkaliCTFRed Team", \
+          "url"      : "/2021-09-18-hackthebox-cap/", \
+          "date"     : "September 18, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Explotando la vulnerabilidad  Microsoft MSHTML CVE-2021-40444", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-12-explotando-cve-2021-40444/", \
+          "date"     : "September 12, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Publicando nuestro sitio Web", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-09-publicar-nuestro-sitio-web/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Creando un sitio Web estático con Jekyll", \
+          "category" : "Creador de contenidoRubyUbuntu", \
+          "url"      : "/2021-09-09-jekyll/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "SSH Honeypot con docker", \
+          "category" : "", \
+          "url"      : "/2021-09-09-ssh-honeypot-con-docker/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Vulnerando Bludit  v3.9.2", \
+          "category" : "Seguridad InformáticaMalwareSeguridadInformaticaHackhackingbludit", \
+          "url"      : "/2020-07-19-vulnerando-bludit-v392/", \
+          "date"     : "July 19, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "TTY: un toolkit para crear aplicaciones de terminal", \
+          "category" : "ProgramaciónRuby", \
+          "url"      : "/2020-07-11-tty-un-toolkit-para-crear-aplicaciones/", \
+          "date"     : "July 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Capacidad de recuperación de datos ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISRecuperación de datos", \
+          "url"      : "/2020-07-10-capacidad-de-recuperacion-de-datos/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Limitación y control de puertos de red, protocolos y servicios", \
+          "category" : "ControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-10-limitacion-y-control-de-puertos-de-red/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Defensa contra malware", \
+          "category" : "Seguridad InformáticaControlsCISControlsMalwareSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-09-defensa-contra-malware/", \
+          "date"     : "July  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Protección de correo electrónico y navegador web", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-15-proteccion-de-correo-electronico-y/", \
+          "date"     : "January 15, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores", \
+          "category" : "Seguridad InformáticaControlsCISControlsCIS", \
+          "url"      : "/2020-01-11-configuracion-segura-para-hardware-y/", \
+          "date"     : "January 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Uso controlado de privilegios administrativos", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISmarco de trabajometodología", \
+          "url"      : "/2020-01-10-uso-controlado-de-privilegios/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Gestión continua de vulnerabilidades", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-10-gestion-continua-de-vulnerabilidades/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : " Inventario de Software autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-09-inventario-de-software-autorizados-y-no/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Inventario de Dispositivos autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISInventario de Dispositivos", \
+          "url"      : "/2020-01-09-inventario-de-dispositivos-autorizados/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Introducción a los CIS controls ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISmarco de trabajometodología", \
+          "url"      : "/2020-01-08-introduccion-los-cis-controls/", \
+          "date"     : "January  8, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs II] Instalar ELK elastic stack 7.5", \
+          "category" : "ubuntuelasticsearchinstalllinuxELK stackelastickibanaelastic stacklogstashl de linux", \
+          "url"      : "/2020-01-07-instalar-elk-elastic-stack-75/", \
+          "date"     : "January  7, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs I] Iniciando con el análisis de logs", \
+          "category" : "Seguridad InformáticalogsSeguridadInformaticaCISl de linux", \
+          "url"      : "/2020-01-02-logs-i-iniciando-con-el-analisis-de-logs/", \
+          "date"     : "January  2, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Instalar nginx mainline", \
+          "category" : "mainlinenginxSeguridad Informáticaubuntuinstalllinuxl de linux", \
+          "url"      : "/2018-09-03-intalar-nginx-mainline/", \
+          "date"     : "September  3, 2018" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "About me", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page2/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page3/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page4/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Uso controlado de privilegios administrativos</h1>
+          
+
+          
+            <span class="post-meta">Posted on January 10, 2020</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Los procesos y herramientas utilizados para rastrear, controlar, prevenir y corregir el uso, la asignación y la configuración de privilegios administrativos en computadoras, redes y aplicaciones.</span></div><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div><div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-GWpdKrXxv-0/XhjSieRCpZI/AAAAAAAAEFI/RndBTqxBx9wNDFFwzRV4ZKQ8RlquPxSGQCEwYBhgL/s1600/illustrated-people.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="360" data-original-width="710" height="324" src="https://1.bp.blogspot.com/-GWpdKrXxv-0/XhjSieRCpZI/AAAAAAAAEFI/RndBTqxBx9wNDFFwzRV4ZKQ8RlquPxSGQCEwYBhgL/s640/illustrated-people.jpg" width="640" /></a></div><br /></div><h1><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">¿Por qué es importante este control?</span></h1><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">El uso indebido de privilegios administrativos es un método principal para que los atacantes se propaguen dentro de una empresa objetivo. Dos técnicas de ataque muy comunes aprovechan los privilegios administrativos no controlados. En el primero, el usuario de una estación de trabajo ejecutándose como usuario privilegiado es engañado para abrir un archivo adjunto de un correo electrónico malicioso, descargar y abrir un archivo de un sitio web malicioso o simplemente navegar a un sitio web que alberga contenido del atacante que puede explotar automáticamente los navegadores. El archivo o exploit contiene un código ejecutable que se ejecuta automáticamente en la máquina de la víctima o engaña al usuario para que ejecute el contenido del atacante. Si la cuenta del usuario de la víctima tiene privilegios administrativos, el atacante puede controlar completamente la máquina de la víctima e instalar keyloggers, sniffers y software de control remoto para buscar contraseñas administrativas y otros datos confidenciales. Ataques similares ocurren con el correo electrónico. Un administrador inadvertidamente abre un correo electrónico que contiene un archivo adjunto infectado y esto se utiliza para obtener un punto de pivote dentro de la red que se usa para atacar a otros sistemas.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">La segunda técnica común utilizada por los atacantes es la elevación de privilegios al adivinar o descifrar una contraseña de un usuario administrativo para obtener acceso a una máquina objetivo. Si los privilegios administrativos son distribuidos de manera amplia y descuidada, o idénticos a las contraseñas utilizadas en sistemas menos críticos, al atacante le resulta mucho más fácil obtener el control total de los sistemas, porque hay muchas más cuentas que pueden actuar como un medio para que los atacantes comprometan los privilegios administrativos.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><table border="1px" bordercolor="#333333"> <tbody><tr>   <td width="10%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Subcontrol</span></td>   <td width="15%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Tipo de activo</span></td>   <td width="25%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Función de seguridad</span></td>   <td width="15%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Control</span></td>   <td width="35%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Descripción</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.1</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Detectar</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Mantener un inventario de cuentas administrativas</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Use herramientas automatizadas para inventariar todas las cuentas administrativas, incluidas las cuentas de dominio y locales, para garantizar que solo las personas autorizadas tengan privilegios elevados.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.2</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Asegurar el uso de cuentas administrativas dedicadas</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Asegúrese de que todos los usuarios con acceso a la cuenta administrativa utilicen una cuenta dedicada o secundaria para actividades elevadas. Esta cuenta solo se debe usar para actividades administrativas y no para la navegación por Internet, correo electrónico o actividades similares.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.4</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usar contraseñas únicas</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Cuando no está soportada la autenticación multifactor (como el administrador local, root o cuentas de servicio), las cuentas usarán contraseñas que son únicas de ese sistema.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.5</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usar autenticación multifactor para todo acceso administrativo</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Utilice autenticación de multifactor y canales encriptados para todos los accesos de cuentas administrativas.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.6</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usar máquinas dedicadas para toda tarea administrativa</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Asegúrese de que los administradores utilicen una máquina dedicada para todas las tareas administrativas o tareas que requieren acceso administrativo. Esta máquina debe estar en un segmento de red diferente al principal de la organización y no se le permitirá el acceso a Internet. Esta máquina no se usará para leer correos electrónicos, manipular documentos o navegar en Internet.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.7</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Limitar el acceso a herramientas de scripts</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Limite el acceso a las herramientas de scripting (como Microsoft PowerShell y Python) solo a usuarios administrativos o de desarrollo que necesiten acceder a esas funcionalidades.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.8</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Detectar</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Registrar y alertar cambios de miembros en grupos administrativos</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Configure los sistemas para que generen una entrada de registro y una alerta cuando se agregue o elimine una cuenta a cualquier grupo que tenga asignados privilegios administrativos.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">4.9</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Usuarios</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Detectar</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Registrar y alertar los inicios de sesión fallidos a cuentas administrativas</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Configure los sistemas para generar una entrada de registro y una alerta de inicios de sesión fallidos en una cuenta administrativa.</span></td>  </tr></tbody></table><h1><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Procedimiento y herramientas</span></h1><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Las funciones integradas del sistema operativo pueden extraer listas de cuentas con privilegios de superusuario, tanto localmente en sistemas individuales como en controladores de dominio en general. Para verificar que los usuarios con cuentas con privilegios altos no usen dichas cuentas para la navegación web diaria y la lectura de correos electrónicos, el personal de seguridad debe recopilar periódicamente una lista de procesos en ejecución para determinar si los navegadores o lectores de correo electrónico se están ejecutando con privilegios elevados. Esta recopilación de información se puede programar, con scripts de shell cortos que buscan una docena o más de navegadores diferentes, lectores de correo electrónico y programas de edición de documentos que se ejecutan con privilegios elevados en las máquinas. Algunas actividades legítimas de administración del sistema pueden requerir la ejecución de dichos programas a corto plazo, pero el uso a largo plazo o frecuente de dichos programas con privilegios administrativos podría indicar que un administrador no se está adhiriendo a este Control.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Para hacer cumplir el requisito de contraseñas seguras, se pueden configurar una longitud mínima de contraseñas mediante las características integradas del sistema operativo para evitar que los usuarios elijan contraseñas cortas. Para aplicar la complejidad de la contraseña (que requiere que las contraseñas sean una cadena de caracteres pseudoaleatorios), se pueden aplicar las configuraciones integradas del sistema operativo o herramientas de terceros de cumplimiento de complejidad de contraseñas. La robustez y la gestión de la contraseña (por ejemplo, la frecuencia del cambio) se deben considerar en un contexto de sistema y ciclo de vida. Una guía de referencia es: The NIST Digital Identity Guidelines (https://pages.nist.gov/800-63-3/)</span></div><br />
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Seguridad Informática">Seguridad Informática</a>
+          
+            <a href="/tags#Controls">Controls</a>
+          
+            <a href="/tags#CISControls">CISControls</a>
+          
+            <a href="/tags#CIS">CIS</a>
+          
+            <a href="/tags#marco de trabajo">marco de trabajo</a>
+          
+            <a href="/tags#metodología">metodología</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Uso+controlado+de+privilegios+administrativos&url=%2F2020-01-10-uso-controlado-de-privilegios%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2020-01-10-gestion-continua-de-vulnerabilidades/" data-toggle="tooltip" data-placement="top" title="Gestión continua de vulnerabilidades">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2020-01-11-configuracion-segura-para-hardware-y/" data-toggle="tooltip" data-placement="top" title="Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+  <div class="disqus-comments">
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+	  var disqus_shortname = 'dotlog-xyz-1';
+	  /* ensure that pages with query string get the same discussion */
+	  var url_parts = window.location.href.split("?");
+	  var disqus_url = url_parts[0];
+	  (function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+  
+  
+
+  
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8701710257778378"
+     crossorigin="anonymous"></script>
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:luisenrique@lnr.pw" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/srenrique" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/srnrique" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Luis Enrique Gastelum
+        &nbsp;&bull;&nbsp;
+      
+      2021
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">dotlog.xyz</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

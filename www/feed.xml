@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    
+    <title>dotLog</title>
+    
+    
+    <description>This website is a virtual proof that I'm awesome</description>
+    
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>HTB cap</title>
+        <description>
+          
+          En esta entrada vamos a aprender un poco de herramientas de red team practicando con la maquina Cap de HTB Para iniciar con esta máquina iniciamos como con cualquier otra, con el reconocimiento de puertos para identificar cuales son los servicios que tiene abiertos esta máquina. Para el reconocimiento usaremos...
+        </description>
+        <pubDate>Sat, 18 Sep 2021 03:00:00 -0400</pubDate>
+        <link>/2021-09-18-hackthebox-cap/</link>
+        <guid isPermaLink="true">/2021-09-18-hackthebox-cap/</guid>
+      </item>
+    
+      <item>
+        <title>Explotando la vulnerabilidad  Microsoft MSHTML CVE-2021-40444</title>
+        <description>
+          
+          El 7 de septiembre de 2021 Microsoft anuncia la vulnerabilidad CVE-2021-40444 de ejecución de código remoto en MSHTML, Microsoft reporta que tiene conocimiento de los atacantes que están usando esta vulnerabilidad por medio de un documento de office especialmente construido para explotar la vulnerabilidad. Microsoft comenta que los atacantes están...
+        </description>
+        <pubDate>Sun, 12 Sep 2021 15:30:00 -0400</pubDate>
+        <link>/2021-09-12-explotando-cve-2021-40444/</link>
+        <guid isPermaLink="true">/2021-09-12-explotando-cve-2021-40444/</guid>
+      </item>
+    
+      <item>
+        <title>Publicando nuestro sitio Web</title>
+        <description>
+          
+          En esta entrada vamos a aprender un poco de Docker, el cual usaremos para levantar un sitio web usando nginx y letsencrypt para tener un servidor web y un certificado ssl. Para este tutorial no es necesario tener grandes conocimientos de Docker ni de nginx, pero si quieres hacer configuraciones...
+        </description>
+        <pubDate>Thu, 09 Sep 2021 00:30:59 -0400</pubDate>
+        <link>/2021-09-09-publicar-nuestro-sitio-web/</link>
+        <guid isPermaLink="true">/2021-09-09-publicar-nuestro-sitio-web/</guid>
+      </item>
+    
+      <item>
+        <title>Creando un sitio Web estático con Jekyll</title>
+        <description>
+          
+          Jekyll es una herramienta que nos ayudara a cubrir una necesidad muy puntual, lo usaremos en caso de que necesitemos crear un sitio web estático ya sea para documentar una herramienta, crear un blog o una pagina de comunicados, todo esto de una forma muy fácil y rápida, sin la...
+        </description>
+        <pubDate>Thu, 09 Sep 2021 00:30:59 -0400</pubDate>
+        <link>/2021-09-09-jekyll/</link>
+        <guid isPermaLink="true">/2021-09-09-jekyll/</guid>
+      </item>
+    
+      <item>
+        <title>SSH Honeypot con docker</title>
+        <description>
+          
+          Según Wikipedia un honeypot o señuelo, es una herramienta de la seguridad informática dispuesto en una red o sistema informático para ser el objetivo de un posible ataque informático, y así poder detectarlo y obtener información de este y del atacante. La característica principal de este tipo de programas es...
+        </description>
+        <pubDate>Thu, 09 Sep 2021 00:30:59 -0400</pubDate>
+        <link>/2021-09-09-ssh-honeypot-con-docker/</link>
+        <guid isPermaLink="true">/2021-09-09-ssh-honeypot-con-docker/</guid>
+      </item>
+    
+      <item>
+        <title>Vulnerando Bludit  v3.9.2</title>
+        <description>
+          
+          Buenos días, el día de hoy vamos a ver como usar herramientas de hacking para vulnerar Bludit (https://www.bludit.com/es/). Bludit es una aplicación web para construir nuestro propio sitio web o blog en segundos; Es completamente gratuito y de código abierto, podemos encontrar el repositorio en GitHub (https://github.com/bludit/bludit). Bludit es un...
+        </description>
+        <pubDate>Sun, 19 Jul 2020 19:34:00 -0400</pubDate>
+        <link>/2020-07-19-vulnerando-bludit-v392/</link>
+        <guid isPermaLink="true">/2020-07-19-vulnerando-bludit-v392/</guid>
+      </item>
+    
+      <item>
+        <title>TTY: un toolkit para crear aplicaciones de terminal</title>
+        <description>
+          
+          TTY es un set de gemas que te ayudan a construir, customizar e interactuar con tus aplicaciones de línea de comando. El set de gemas TTY cuenta con 23 componentes individuales que pueden ser usados individualmente con combinados para cubrir con los requerimientos de tu proyecto. TTY esta enfocado en...
+        </description>
+        <pubDate>Sat, 11 Jul 2020 03:38:00 -0400</pubDate>
+        <link>/2020-07-11-tty-un-toolkit-para-crear-aplicaciones/</link>
+        <guid isPermaLink="true">/2020-07-11-tty-un-toolkit-para-crear-aplicaciones/</guid>
+      </item>
+    
+      <item>
+        <title>Capacidad de recuperación de datos </title>
+        <description>
+          
+          Los procesos y herramientas utilizadas para respaldar adecuadamente la información crítica con una metodología comprobada para la recuperación oportuna de la misma. ¿Por qué es importante este control? Cuando los atacantes comprometen máquinas, a menudo realizan cambios significativos en las configuraciones y el software. En ocasiones, los atacantes también realizan...
+        </description>
+        <pubDate>Fri, 10 Jul 2020 20:16:00 -0400</pubDate>
+        <link>/2020-07-10-capacidad-de-recuperacion-de-datos/</link>
+        <guid isPermaLink="true">/2020-07-10-capacidad-de-recuperacion-de-datos/</guid>
+      </item>
+    
+      <item>
+        <title>Limitación y control de puertos de red, protocolos y servicios</title>
+        <description>
+          
+          Administrar (rastrear/controlar/corregir) el uso operacional continuo de puertos, protocolos y servicios en dispositivos en red para minimizar las ventanas de vulnerabilidad disponibles para los atacantes. ¿Por qué es importante este control? Los atacantes buscan servicios de red remotamente accesibles que sean vulnerables a la explotación. Ejemplos comunes incluyen servidores web...
+        </description>
+        <pubDate>Fri, 10 Jul 2020 00:11:00 -0400</pubDate>
+        <link>/2020-07-10-limitacion-y-control-de-puertos-de-red/</link>
+        <guid isPermaLink="true">/2020-07-10-limitacion-y-control-de-puertos-de-red/</guid>
+      </item>
+    
+      <item>
+        <title>Defensa contra malware</title>
+        <description>
+          
+          controlar la instalación, propagación y ejecución de código malicioso en múltiples puntos de la organización, al mismo tiempo que optimizar el uso de automatización para permitir la actualización rápida de la defensa, la recopilación de datos y la acción correctiva. ¿Por qué es importante este control? El software malicioso (malware)...
+        </description>
+        <pubDate>Thu, 09 Jul 2020 21:26:00 -0400</pubDate>
+        <link>/2020-07-09-defensa-contra-malware/</link>
+        <guid isPermaLink="true">/2020-07-09-defensa-contra-malware/</guid>
+      </item>
+    
+      <item>
+        <title>Protección de correo electrónico y navegador web</title>
+        <description>
+          
+          Protección de correo electrónico y navegador web Minimizar la superficie de ataque y la oportunidad para atacantes de manipular el comportamiento humano a través de su interacción con navegadores web y sistemas de correo electrónico. ¿Por qué es importante este control? Los navegadores web y los clientes de correo electrónico...
+        </description>
+        <pubDate>Wed, 15 Jan 2020 00:46:00 -0500</pubDate>
+        <link>/2020-01-15-proteccion-de-correo-electronico-y/</link>
+        <guid isPermaLink="true">/2020-01-15-proteccion-de-correo-electronico-y/</guid>
+      </item>
+    
+      <item>
+        <title>Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores</title>
+        <description>
+          
+          Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores Establezca, implemente y gestione activamente (rastree, informe, corrija) la configuración de seguridad de dispositivos móviles, computadoras portátiles, servidores y estaciones de trabajo utilizando una rigurosa gestión de configuraciones y un proceso de control de...
+        </description>
+        <pubDate>Sat, 11 Jan 2020 13:47:00 -0500</pubDate>
+        <link>/2020-01-11-configuracion-segura-para-hardware-y/</link>
+        <guid isPermaLink="true">/2020-01-11-configuracion-segura-para-hardware-y/</guid>
+      </item>
+    
+      <item>
+        <title>Uso controlado de privilegios administrativos</title>
+        <description>
+          
+          Los procesos y herramientas utilizados para rastrear, controlar, prevenir y corregir el uso, la asignación y la configuración de privilegios administrativos en computadoras, redes y aplicaciones.¿Por qué es importante este control?El uso indebido de privilegios administrativos es un método principal para que los atacantes se propaguen dentro de una empresa...
+        </description>
+        <pubDate>Fri, 10 Jan 2020 14:38:00 -0500</pubDate>
+        <link>/2020-01-10-uso-controlado-de-privilegios/</link>
+        <guid isPermaLink="true">/2020-01-10-uso-controlado-de-privilegios/</guid>
+      </item>
+    
+      <item>
+        <title>Gestión continua de vulnerabilidades</title>
+        <description>
+          
+          Gestión continua de vulnerabilidades Adquirir, evaluar y tomar medidas continuamente sobre nueva información para identificar vulnerabilidades, remediar y minimizar la ventana de oportunidad para los atacantes. ¿Por qué es importante este control?Para la defensa cibernética se debe operar en un flujo constante de nueva información: actualizaciones de software, parches, avisos...
+        </description>
+        <pubDate>Fri, 10 Jan 2020 14:04:00 -0500</pubDate>
+        <link>/2020-01-10-gestion-continua-de-vulnerabilidades/</link>
+        <guid isPermaLink="true">/2020-01-10-gestion-continua-de-vulnerabilidades/</guid>
+      </item>
+    
+      <item>
+        <title> Inventario de Software autorizados y no autorizados</title>
+        <description>
+          
+          Gestione activamente todo software en la red (inventario, seguimiento y corrección), de tal manera que solo software autorizado esté instalado y pueda ejecutarse, y que el software no autorizado y no gestionado sea encontrado y se prevenga su instalación y ejecución.¿Por qué es importante este control?Los atacantes escanean continuamente a...
+        </description>
+        <pubDate>Thu, 09 Jan 2020 20:30:00 -0500</pubDate>
+        <link>/2020-01-09-inventario-de-software-autorizados-y-no/</link>
+        <guid isPermaLink="true">/2020-01-09-inventario-de-software-autorizados-y-no/</guid>
+      </item>
+    
+      <item>
+        <title>Inventario de Dispositivos autorizados y no autorizados</title>
+        <description>
+          
+          Gestione activamente todo dispositivo hardware en la red (inventario, seguimiento y corrección), de tal manera que solo los dispositivos autorizados obtengan acceso y que los dispositivos no autorizados y no gestionados sean detectados y se prevenga que obtengan acceso. ¿Por qué es importante este control? Atacantes que pueden estar situados...
+        </description>
+        <pubDate>Thu, 09 Jan 2020 00:30:00 -0500</pubDate>
+        <link>/2020-01-09-inventario-de-dispositivos-autorizados/</link>
+        <guid isPermaLink="true">/2020-01-09-inventario-de-dispositivos-autorizados/</guid>
+      </item>
+    
+      <item>
+        <title>Introducción a los CIS controls </title>
+        <description>
+          
+          IntroducciónCIS Controls es un conjunto de acciones priorizadas que colectivamente forman un conjunto de mejores prácticas de defensa que mitigan los ataques más comunes contra sistemas y redes. Los Controles CIS son desarrollados por una comunidad de expertos en TI que aplican su experiencia de primera mano como defensores cibernéticos...
+        </description>
+        <pubDate>Wed, 08 Jan 2020 01:10:00 -0500</pubDate>
+        <link>/2020-01-08-introduccion-los-cis-controls/</link>
+        <guid isPermaLink="true">/2020-01-08-introduccion-los-cis-controls/</guid>
+      </item>
+    
+      <item>
+        <title>[Logs II] Instalar ELK elastic stack 7.5</title>
+        <description>
+          
+          RequerimientosUbuntu 18.04.3 LTS4 GB de Ram¿Qué es entonces el ELK Stack? ELK es la sigla para tres proyectos open source: Elasticsearch, Logstash y Kibana. Elasticsearch es un motor de búsqueda y analítica. Logstash es un pipeline de procesamiento de datos del lado del servidor que ingesta datos de una multitud...
+        </description>
+        <pubDate>Tue, 07 Jan 2020 18:31:00 -0500</pubDate>
+        <link>/2020-01-07-instalar-elk-elastic-stack-75/</link>
+        <guid isPermaLink="true">/2020-01-07-instalar-elk-elastic-stack-75/</guid>
+      </item>
+    
+      <item>
+        <title>[Logs I] Iniciando con el análisis de logs</title>
+        <description>
+          
+          En esta serie de entradas hablaremos sobre la importancia que tienen los logs para conseguir información en un ataque. El objetivo de esta serie de entradas es aprender a recopilar, administrar y analizar registros de auditoría de eventos que podrían ayudar a detectar, comprender o recuperarse de un ataque. ¿Por...
+        </description>
+        <pubDate>Thu, 02 Jan 2020 19:15:00 -0500</pubDate>
+        <link>/2020-01-02-logs-i-iniciando-con-el-analisis-de-logs/</link>
+        <guid isPermaLink="true">/2020-01-02-logs-i-iniciando-con-el-analisis-de-logs/</guid>
+      </item>
+    
+      <item>
+        <title>Instalar nginx mainline</title>
+        <description>
+          
+          Actualizar repositorios de UbuntuAntes de iniciar tenemos que actualizar los repositorios de Ubuntu$ sudo apt update &amp;amp;&amp;amp; sudo apt dist-upgradeAgregar repositorio de nginxAgregamos los repositorios de la última versión estable de nginx$ cd /tmp/ &amp;amp;&amp;amp; wget http://nginx.org/keys/nginx_signing.key$ sudo apt-key add nginx_signing.keycuando esto termine agregamos el repositorio a la lista sources.list.d$...
+        </description>
+        <pubDate>Mon, 03 Sep 2018 01:28:00 -0400</pubDate>
+        <link>/2018-09-03-intalar-nginx-mainline/</link>
+        <guid isPermaLink="true">/2018-09-03-intalar-nginx-mainline/</guid>
+      </item>
+    
+  </channel>
+</rss>

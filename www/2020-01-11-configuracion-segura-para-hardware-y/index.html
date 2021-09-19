@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores</title>
+
+  
+  <meta name="author" content="Luis Enrique Gastelum">
+  
+
+  <meta name="description" content="Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores Establezca, implemente y gestione activamente (rastree, informe, corrija) la configuración de seguridad de dispositivos móviles, computadoras portátiles, servidores y estaciones de trabajo utilizando una rigurosa gestión de configuraciones y un proceso de control de...">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="dotLog" href="/feed.xml">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="dotLog">
+  <meta property="og:title" content="Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores">
+  <meta property="og:description" content="Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores Establezca, implemente y gestione activamente (rastree, informe, corrija) la configuración de seguridad de dispositivos móviles, computadoras portátiles, servidores y estaciones de trabajo utilizando una rigurosa gestión de configuraciones y un proceso de control de...">
+
+  
+  <meta property="og:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Luis Enrique Gastelum">
+  <meta property="og:article:published_time" content="2020-01-11T13:47:00-05:00">
+  <meta property="og:url" content="/2020-01-11-configuracion-segura-para-hardware-y/">
+  <link rel="canonical" href="/2020-01-11-configuracion-segura-para-hardware-y/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@srnrique">
+  <meta name="twitter:creator" content="@srnrique">
+
+  <meta property="twitter:title" content="Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores">
+  <meta property="twitter:description" content="Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores Establezca, implemente y gestione activamente (rastree, informe, corrija) la configuración de seguridad de dispositivos móviles, computadoras portátiles, servidores y estaciones de trabajo utilizando una rigurosa gestión de configuraciones y un proceso de control de...">
+
+  
+  <meta name="twitter:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/">dotLog</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tags">Tags</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "HTB cap", \
+          "category" : "hackingkaliCTFRed Team", \
+          "url"      : "/2021-09-18-hackthebox-cap/", \
+          "date"     : "September 18, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Explotando la vulnerabilidad  Microsoft MSHTML CVE-2021-40444", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-12-explotando-cve-2021-40444/", \
+          "date"     : "September 12, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Publicando nuestro sitio Web", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-09-publicar-nuestro-sitio-web/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Creando un sitio Web estático con Jekyll", \
+          "category" : "Creador de contenidoRubyUbuntu", \
+          "url"      : "/2021-09-09-jekyll/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "SSH Honeypot con docker", \
+          "category" : "", \
+          "url"      : "/2021-09-09-ssh-honeypot-con-docker/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Vulnerando Bludit  v3.9.2", \
+          "category" : "Seguridad InformáticaMalwareSeguridadInformaticaHackhackingbludit", \
+          "url"      : "/2020-07-19-vulnerando-bludit-v392/", \
+          "date"     : "July 19, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "TTY: un toolkit para crear aplicaciones de terminal", \
+          "category" : "ProgramaciónRuby", \
+          "url"      : "/2020-07-11-tty-un-toolkit-para-crear-aplicaciones/", \
+          "date"     : "July 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Capacidad de recuperación de datos ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISRecuperación de datos", \
+          "url"      : "/2020-07-10-capacidad-de-recuperacion-de-datos/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Limitación y control de puertos de red, protocolos y servicios", \
+          "category" : "ControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-10-limitacion-y-control-de-puertos-de-red/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Defensa contra malware", \
+          "category" : "Seguridad InformáticaControlsCISControlsMalwareSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-09-defensa-contra-malware/", \
+          "date"     : "July  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Protección de correo electrónico y navegador web", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-15-proteccion-de-correo-electronico-y/", \
+          "date"     : "January 15, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores", \
+          "category" : "Seguridad InformáticaControlsCISControlsCIS", \
+          "url"      : "/2020-01-11-configuracion-segura-para-hardware-y/", \
+          "date"     : "January 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Uso controlado de privilegios administrativos", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISmarco de trabajometodología", \
+          "url"      : "/2020-01-10-uso-controlado-de-privilegios/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Gestión continua de vulnerabilidades", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-10-gestion-continua-de-vulnerabilidades/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : " Inventario de Software autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-09-inventario-de-software-autorizados-y-no/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Inventario de Dispositivos autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISInventario de Dispositivos", \
+          "url"      : "/2020-01-09-inventario-de-dispositivos-autorizados/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Introducción a los CIS controls ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISmarco de trabajometodología", \
+          "url"      : "/2020-01-08-introduccion-los-cis-controls/", \
+          "date"     : "January  8, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs II] Instalar ELK elastic stack 7.5", \
+          "category" : "ubuntuelasticsearchinstalllinuxELK stackelastickibanaelastic stacklogstashl de linux", \
+          "url"      : "/2020-01-07-instalar-elk-elastic-stack-75/", \
+          "date"     : "January  7, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs I] Iniciando con el análisis de logs", \
+          "category" : "Seguridad InformáticalogsSeguridadInformaticaCISl de linux", \
+          "url"      : "/2020-01-02-logs-i-iniciando-con-el-analisis-de-logs/", \
+          "date"     : "January  2, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Instalar nginx mainline", \
+          "category" : "mainlinenginxSeguridad Informáticaubuntuinstalllinuxl de linux", \
+          "url"      : "/2018-09-03-intalar-nginx-mainline/", \
+          "date"     : "September  3, 2018" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "About me", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page2/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page3/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page4/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores</h1>
+          
+
+          
+            <span class="post-meta">Posted on January 11, 2020</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-JOCeMbQ0Yi8/XhoYICkRT6I/AAAAAAAAEGI/ctbBLihR47wyKgmTFKCW2HS9KjXI8OR0wCLcBGAsYHQ/s1600/problemes-cdrom-dvd.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="416" data-original-width="622" height="428" src="https://1.bp.blogspot.com/-JOCeMbQ0Yi8/XhoYICkRT6I/AAAAAAAAEGI/ctbBLihR47wyKgmTFKCW2HS9KjXI8OR0wCLcBGAsYHQ/s640/problemes-cdrom-dvd.jpg" width="640" /></a></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores   </span><br /><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Establezca, implemente y gestione activamente (rastree, informe, corrija) la configuración de seguridad de dispositivos móviles, computadoras portátiles, servidores y estaciones de trabajo utilizando una rigurosa gestión de configuraciones y un proceso de control de cambios para evitar que los atacantes exploten servicios y configuraciones vulnerables.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><h1><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">¿Por qué es importante este control?</span></h1><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Las configuraciones predeterminadas entregadas por los fabricantes y revendedores de sistemas operativos y aplicaciones normalmente están orientadas a la facilidad de implementación y la facilidad de uso, no a la seguridad. Controles básicos, servicios y puertos abiertos, cuentas o contraseñas predeterminadas, protocolos antiguos (vulnerables), preinstalación de software innecesario - todos pueden ser explotables en su estado predeterminado.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Desarrollar configuraciones con buenas propiedades de seguridad es una tarea compleja más allá de la capacidad de usuarios individuales, que requiere un análisis de cientos o miles de opciones para tomar buenas decisiones (la sección Procedimientos y herramientas en la página 29 proporciona recursos para configuraciones seguras). Incluso si se desarrolla e instala una configuración inicial sólida, debe gestionarse continuamente para evitar la "degradación" de la seguridad a medida que se actualiza o repara el software, se informan nuevas vulnerabilidades de seguridad y se "afinan" las configuraciones para permitir la instalación de nuevo software o soporte nuevos requisitos operacionales. De lo contrario, los atacantes encontrarán oportunidades para explotar tanto los servicios accesibles a la red como el software del cliente.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><table border="1px" bordercolor="#333333" padding="13px"> <tbody><tr>   <td width="10%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Subcontrol</span></td>   <td width="15%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Tipo de activo</span></td>   <td width="20%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Función de seguridad</span></td>   <td width="15%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Control</span></td>   <td width="40%"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Descripción</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">5.1</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Aplicaciones</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Establecer configuraciones seguras</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Mantenga estándares de configuración de seguridad estándar documentados para todos los sistemas operativos y software autorizados.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">5.2</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Aplicaciones</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Mantener imagenes seguras</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Mantenga imágenes o plantillas seguras para todos los sistemas de la organización según los estándares de configuración aprobados por la organización. Cualquier implementación de sistema nuevo o sistema existente que se vea comprometido se debe volver a reconstruido con una de esas imágenes o plantillas.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">5.3</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Aplicaciones</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Almacenar las imágenes maestras de forma segura</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Almacene las imágenes maestras y las plantillas en servidores configurados de forma segura, validados con herramientas de monitoreo de integridad, para garantizar que solo sean posibles los cambios autorizados en las imágenes.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">5.4</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Aplicaciones</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Proteger</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Implementar herramientas de gestión de configuración de sistema</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Implemente las herramientas de gestión de configuración de sistema que automáticamente fuercen y vuelvan a implementar los parámetros de configuración en los sistemas a intervalos regulares programados.</span></td>  </tr><tr>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">5.5</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Aplicaciones</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Detectar</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Implementar sistemas de monitoreo automatizado de configuración</span></td>   <td><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Utilice un sistema de monitoreo de configuración compatible con el Protocolo de automatización de contenido de seguridad (SCAP) para verificar todos los elementos de configuración de seguridad, excepciones aprobadas por catálogo y que alerte cuando ocurran cambios no autorizados.</span></td>  </tr></tbody></table><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Procedimientos y herramientas   </span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">En lugar de comenzar de cero desarrollando una línea base de seguridad para cada sistema de software, las organizaciones deberían comenzar desde referencia, guías o listas de verificación de seguridad que hayan sido desarrolladas, aprobadas y respaldadas públicamente. Excelentes recursos incluyen:  </span><br /><ol><li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">El programa CIS BenchmarksTM (www.cisecurity.org)</span></li><li><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">NIST National Checklist Program (https://nvd.nist.gov/ncp/repository)</span></li></ol></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Las organizaciones deberían aumentar o ajustar estas líneas base para satisfacer las políticas y los requisitos locales, pero las desviaciones y los fundamentos deberían documentarse para facilitar revisiones o auditorías posteriores.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Para una organización compleja, el establecimiento de una única configuración de línea base de seguridad (por ejemplo, una imagen de instalación única para todas las estaciones de trabajo en toda la organización) a veces no es práctica o se considera inaceptable. Es probable que necesite admitir diferentes imágenes estandarizadas, basadas en el endurecimiento adecuado para abordar los riesgos y la funcionalidad necesaria de la implementación prevista (por ejemplo, un servidor web en la DMZ frente a un correo electrónico u otro servidor de aplicaciones en la red interna). El número de variaciones se debe mantener al mínimo para comprender y gestionar mejor las propiedades de seguridad de cada una, pero las organizaciones deben estar preparadas para gestionar líneas de base múltiples.</span></div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Las herramientas de gestión de configuración comerciales y/o gratuitas pueden emplearse para medir la configuración de los sistemas operativos y las aplicaciones de las máquinas gestionadas para detectar desviaciones de las configuraciones de imagen estándar. Las herramientas de gestión de configuración típicas utilizan alguna combinación de un agente instalado en cada sistema gestionado o una inspección sin agente de los sistemas iniciando sesión de forma remota en cada máquina gestionada utilizando credenciales de administrador. Además, a veces se utiliza un enfoque híbrido mediante el cual se inicia una sesión remota, se implementa un agente temporal o dinámico en el sistema de destino para el escaneo y luego se elimina el agente.</span></div><br />
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Seguridad Informática">Seguridad Informática</a>
+          
+            <a href="/tags#Controls">Controls</a>
+          
+            <a href="/tags#CISControls">CISControls</a>
+          
+            <a href="/tags#CIS">CIS</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Configuraci%C3%B3n+segura+para+hardware+y+software+en+dispositivos+m%C3%B3viles%2C+computadoras+port%C3%A1tiles%2C+estaciones+de+trabajo+y+servidores&url=%2F2020-01-11-configuracion-segura-para-hardware-y%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2020-01-10-uso-controlado-de-privilegios/" data-toggle="tooltip" data-placement="top" title="Uso controlado de privilegios administrativos">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2020-01-15-proteccion-de-correo-electronico-y/" data-toggle="tooltip" data-placement="top" title="Protección de correo electrónico y navegador web">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+  <div class="disqus-comments">
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+	  var disqus_shortname = 'dotlog-xyz-1';
+	  /* ensure that pages with query string get the same discussion */
+	  var url_parts = window.location.href.split("?");
+	  var disqus_url = url_parts[0];
+	  (function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+  
+  
+
+  
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8701710257778378"
+     crossorigin="anonymous"></script>
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:luisenrique@lnr.pw" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/srenrique" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/srnrique" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Luis Enrique Gastelum
+        &nbsp;&bull;&nbsp;
+      
+      2021
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">dotlog.xyz</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

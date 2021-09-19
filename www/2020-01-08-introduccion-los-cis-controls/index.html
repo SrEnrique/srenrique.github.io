@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Introducción a los CIS controls </title>
+
+  
+  <meta name="author" content="Luis Enrique Gastelum">
+  
+
+  <meta name="description" content="IntroducciónCIS Controls es un conjunto de acciones priorizadas que colectivamente forman un conjunto de mejores prácticas de defensa que mitigan los ataques más comunes contra sistemas y redes. Los Controles CIS son desarrollados por una comunidad de expertos en TI que aplican su experiencia de primera mano como defensores cibernéticos...">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="dotLog" href="/feed.xml">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="dotLog">
+  <meta property="og:title" content="Introducción a los CIS controls ">
+  <meta property="og:description" content="IntroducciónCIS Controls es un conjunto de acciones priorizadas que colectivamente forman un conjunto de mejores prácticas de defensa que mitigan los ataques más comunes contra sistemas y redes. Los Controles CIS son desarrollados por una comunidad de expertos en TI que aplican su experiencia de primera mano como defensores cibernéticos...">
+
+  
+  <meta property="og:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Luis Enrique Gastelum">
+  <meta property="og:article:published_time" content="2020-01-08T01:10:00-05:00">
+  <meta property="og:url" content="/2020-01-08-introduccion-los-cis-controls/">
+  <link rel="canonical" href="/2020-01-08-introduccion-los-cis-controls/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@srnrique">
+  <meta name="twitter:creator" content="@srnrique">
+
+  <meta property="twitter:title" content="Introducción a los CIS controls ">
+  <meta property="twitter:description" content="IntroducciónCIS Controls es un conjunto de acciones priorizadas que colectivamente forman un conjunto de mejores prácticas de defensa que mitigan los ataques más comunes contra sistemas y redes. Los Controles CIS son desarrollados por una comunidad de expertos en TI que aplican su experiencia de primera mano como defensores cibernéticos...">
+
+  
+  <meta name="twitter:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/">dotLog</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tags">Tags</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "HTB cap", \
+          "category" : "hackingkaliCTFRed Team", \
+          "url"      : "/2021-09-18-hackthebox-cap/", \
+          "date"     : "September 18, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Explotando la vulnerabilidad  Microsoft MSHTML CVE-2021-40444", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-12-explotando-cve-2021-40444/", \
+          "date"     : "September 12, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Publicando nuestro sitio Web", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-09-publicar-nuestro-sitio-web/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Creando un sitio Web estático con Jekyll", \
+          "category" : "Creador de contenidoRubyUbuntu", \
+          "url"      : "/2021-09-09-jekyll/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "SSH Honeypot con docker", \
+          "category" : "", \
+          "url"      : "/2021-09-09-ssh-honeypot-con-docker/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Vulnerando Bludit  v3.9.2", \
+          "category" : "Seguridad InformáticaMalwareSeguridadInformaticaHackhackingbludit", \
+          "url"      : "/2020-07-19-vulnerando-bludit-v392/", \
+          "date"     : "July 19, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "TTY: un toolkit para crear aplicaciones de terminal", \
+          "category" : "ProgramaciónRuby", \
+          "url"      : "/2020-07-11-tty-un-toolkit-para-crear-aplicaciones/", \
+          "date"     : "July 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Capacidad de recuperación de datos ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISRecuperación de datos", \
+          "url"      : "/2020-07-10-capacidad-de-recuperacion-de-datos/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Limitación y control de puertos de red, protocolos y servicios", \
+          "category" : "ControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-10-limitacion-y-control-de-puertos-de-red/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Defensa contra malware", \
+          "category" : "Seguridad InformáticaControlsCISControlsMalwareSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-09-defensa-contra-malware/", \
+          "date"     : "July  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Protección de correo electrónico y navegador web", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-15-proteccion-de-correo-electronico-y/", \
+          "date"     : "January 15, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores", \
+          "category" : "Seguridad InformáticaControlsCISControlsCIS", \
+          "url"      : "/2020-01-11-configuracion-segura-para-hardware-y/", \
+          "date"     : "January 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Uso controlado de privilegios administrativos", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISmarco de trabajometodología", \
+          "url"      : "/2020-01-10-uso-controlado-de-privilegios/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Gestión continua de vulnerabilidades", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-10-gestion-continua-de-vulnerabilidades/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : " Inventario de Software autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-09-inventario-de-software-autorizados-y-no/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Inventario de Dispositivos autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISInventario de Dispositivos", \
+          "url"      : "/2020-01-09-inventario-de-dispositivos-autorizados/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Introducción a los CIS controls ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISmarco de trabajometodología", \
+          "url"      : "/2020-01-08-introduccion-los-cis-controls/", \
+          "date"     : "January  8, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs II] Instalar ELK elastic stack 7.5", \
+          "category" : "ubuntuelasticsearchinstalllinuxELK stackelastickibanaelastic stacklogstashl de linux", \
+          "url"      : "/2020-01-07-instalar-elk-elastic-stack-75/", \
+          "date"     : "January  7, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs I] Iniciando con el análisis de logs", \
+          "category" : "Seguridad InformáticalogsSeguridadInformaticaCISl de linux", \
+          "url"      : "/2020-01-02-logs-i-iniciando-con-el-analisis-de-logs/", \
+          "date"     : "January  2, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Instalar nginx mainline", \
+          "category" : "mainlinenginxSeguridad Informáticaubuntuinstalllinuxl de linux", \
+          "url"      : "/2018-09-03-intalar-nginx-mainline/", \
+          "date"     : "September  3, 2018" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "About me", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page2/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page3/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page4/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Introducción a los CIS controls </h1>
+          
+
+          
+            <span class="post-meta">Posted on January 8, 2020</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-JZjhp9fZARQ/XhVpEL_n2fI/AAAAAAAAEBY/l3VX81KMVoo46wSwb7wRjzD7kOCx-OHvACLcBGAsYHQ/s1600/CIS-Cyber-Hygiene-Controls.png.webp" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="512" data-original-width="1024" height="320" src="https://1.bp.blogspot.com/-JZjhp9fZARQ/XhVpEL_n2fI/AAAAAAAAEBY/l3VX81KMVoo46wSwb7wRjzD7kOCx-OHvACLcBGAsYHQ/s640/CIS-Cyber-Hygiene-Controls.png.webp" width="640" /></a></div><h1><span style="font-family: &quot;verdana&quot; , sans-serif;">Introducción</span></h1><div><span style="font-family: &quot;verdana&quot; , sans-serif;">CIS Controls es un conjunto de acciones priorizadas que colectivamente forman un conjunto de mejores prácticas de defensa que mitigan los ataques más comunes contra sistemas y redes. Los Controles CIS son desarrollados por una comunidad de expertos en TI que aplican su experiencia de primera mano como defensores cibernéticos para crear estas mejores prácticas de seguridad aceptadas globalmente. Los expertos que desarrollan los Controles CIS provienen de una amplia gama de sectores que incluyen retail, fabricación, salud, educación, gobierno, defensa y otros.  </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Estamos en un punto fascinante en la evolución de lo que ahora llamamos defensa cibernética. Pérdidas masivas de datos, robo de propiedad intelectual, violaciones de tarjetas de crédito, robo de identidad, amenazas a nuestra privacidad, denegación de servicio: se han convertido en una forma de vida para todos nosotros en el ciberespacio.  </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Y, como defensores, tenemos acceso a una extraordinaria variedad de herramientas de seguridad y tecnología, estándares de seguridad, entrenamientos y clases, certificaciones, bases de datos de vulnerabilidad, orientación, mejores prácticas, catálogos de controles de seguridad e innumerables listas de verificación de seguridad, puntos de referencia y recomendaciones. Para ayudarnos a comprender la amenaza, hemos visto la aparición de feeds de información de amenazas, informes, herramientas, servicios de alerta, estándares y frameworks de intercambio de amenazas. Para colmo, estamos rodeados de requisitos de seguridad, marcos de gestión de riesgos, regímenes de cumplimiento, mandatos regulatorios, etc. La información disponible para los profesionales de seguridad sobre lo que deberían hacer para proteger su infraestructura no es escasa.  </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Pero toda esta tecnología, información y supervisión se ha convertido en una verdadera "nebulosa": diferentes opciones, prioridades, opiniones y afirmaciones que compiten entre sí y que pueden paralizar o distraer a una empresa de una acción vital. La complejidad del negocio está creciendo, las dependencias se están expandiendo, los usuarios se están volviendo más móviles y las amenazas están evolucionando. La nueva tecnología nos brinda grandes beneficios, pero también significa que nuestros datos y aplicaciones ahora se distribuyen en múltiples ubicaciones, muchas de las cuales no están dentro de la infraestructura de nuestra organización. En este mundo complejo e interconectado, ninguna empresa puede pensar en su seguridad como un problema aislado.  </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Entonces, ¿cómo podemos, como una comunidad, la comunidad en general, así como dentro de las industrias, sectores, asociaciones y coaliciones, unirnos para establecer la prioridad de acción, apoyarnos mutuamente y mantener nuestro conocimiento y tecnología al día ante un problema en rápida evolución y un número aparentemente infinito de posibles soluciones? ¿Cuáles son las áreas más críticas que debemos abordar y cómo debe una empresa dar el primer paso para madurar su programa de gestión de riesgos? En lugar de perseguir cada nueva amenaza excepcional y descuidar los fundamentos, ¿cómo podemos encaminarnos con una hoja de ruta de fundamentos y una guía para medir y mejorar? ¿Qué pasos defensivos tienen el mayor valor?  </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Estos son los tipos de problemas que provocaron y ahora conducen los controles CIS. Comenzaron como una actividad de base para atravesar la "Niebla de más" y enfocarse en las acciones más fundamentales y valiosas que toda empresa debería emprender. Y el valor aquí está determinado por el conocimiento y los datos: la capacidad de prevenir, alertar y responder a los ataques que afectan hoy a las empresas. </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Dirigidas por CIS, los controles de CIS han sido madurados por una comunidad internacional de personas e instituciones que:</span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><ul><li><span style="font-family: &quot;verdana&quot; , sans-serif;">comparten información sobre ataques y atacantes, identificar causas raíz y traducir eso en tipos de acciones defensivas; </span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">documentan historias de adopción y compartir herramientas para resolver problemas; </span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">dan seguimiento a la evolución de las amenazas, las capacidades de los adversarios y los vectores actuales de intrusiones; </span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">mapean los Controles de CIS a los marcos regulatorios y de cumplimiento, y dar prioridad colectiva y centrarse en ellos; </span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">comparten herramientas, ayudas de trabajo y traducciones; y </span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">identifican problemas comunes (como la evaluación inicial y los mapas de ruta de implementación) y resolverlos como una  comunidad.</span></li></ul><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Estas actividades aseguran que los Controles CIS no son solo otra lista de buenas prácticas, sino un conjunto de acciones priorizadas y altamente focalizadas que tienen una red de soporte comunitario para hacerlas implementables, utilizables, escalables y compatibles con todos los requerimientos de seguridad gubernamental o industrial. </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-7H7i_t8FM7Y/XhVyLoFwqFI/AAAAAAAAEBk/66EZj0cLM8cSbYfcBKCpHOuxx1nMQKv-ACEwYBhgL/s1600/Captura%2Bde%2BPantalla%2B2020-01-07%2Ba%2Bla%2528s%2529%2B22.41.37.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="980" data-original-width="1476" height="424" src="https://1.bp.blogspot.com/-7H7i_t8FM7Y/XhVyLoFwqFI/AAAAAAAAEBk/66EZj0cLM8cSbYfcBKCpHOuxx1nMQKv-ACEwYBhgL/s640/Captura%2Bde%2BPantalla%2B2020-01-07%2Ba%2Bla%2528s%2529%2B22.41.37.png" width="640" /></a></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><h1><span style="font-family: &quot;verdana&quot; , sans-serif;">Por qué los Controles CIS funcionan: metodología y contribuyentes</span></h1><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Los Controles CIS se nutren de información de ataques reales y defensas efectivas y reflejan el conocimiento combinado de expertos de cada parte del ecosistema (empresas, gobiernos, individuos); con cada rol (respondedores y analistas de amenazas, tecnólogos, buscadores de vulnerabilidades, fabricantes de herramientas, proveedores de soluciones, defensores, usuarios, responsables de políticas, auditores, etc.); y dentro de muchos sectores (gobierno, poder, defensa, finanzas, transporte, academia, consultoría, seguridad, TI) que se han unido para crear, adoptar y respaldar los Controles. Los principales expertos de las organizaciones combinaron su extenso conocimiento de primera mano para defenderse de los ciberataques reales y evolucionar la lista de controles consensuados, representando las mejores técnicas defensivas para prevenir o rastrearlos. Esto asegura que los Controles CIS son el conjunto más efectivo y específico de medidas técnicas disponibles para detectar, prevenir, responder y mitigar el daño desde el más común al más avanzado de esos ataques.  </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Los controles CIS no están limitados a bloquear el compromiso inicial de los sistemas, sino que también abordan la detección de máquinas ya comprometidas y la prevención o interrupción de las acciones de seguimiento de los atacantes. Las defensas identificadas a través de estos Controles tratan de reducir la superficie de ataque inicial reforzando las configuraciones del dispositivo, identificando máquinas comprometidas para abordar amenazas a largo plazo dentro de la red de una organización, interrumpiendo el comando y control de los atacantes del código malicioso ya implantado y estableciendo un sistema adaptativo de capacidad de defensa y respuesta continuo, que puede mantenerse y mejorarse. </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Los cinco principios fundamentales de un sistema efectivo de defensa cibernética como se refleja en los controles CIS son: </span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><ol><li><span style="font-family: &quot;verdana&quot; , sans-serif;">La ofensa informa a la defensa: utilice el conocimiento de los ataques reales que han comprometido los sistemas para proporcionar la base para aprender continuamente de estos eventos y construir defensas efectivas y prácticas. Incluya sólo aquellos controles demostrados para detener ataques conocidos del mundo real.</span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">Priorización: invierta primero en los controles que proporcionarán la mayor reducción de riesgos y protección contra los actores más peligrosos y que se pueden implementar de manera viable en su entorno informático.</span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">Mediciones y métricas: establezca parámetros comunes para proporcionar un lenguaje compartido para ejecutivos, especialistas en TI, auditores y funcionarios de seguridad para medir la efectividad de las medidas de seguridad dentro de una organización, de modo que los ajustes necesarios se puedan identificar e implementar rápidamente.</span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">Diagnóstico y mitigación continuos: realice mediciones continuas para probar y validar la efectividad de las medidas de seguridad actuales y para ayudar a dirigir la prioridad de los siguientes pasos.</span></li><li><span style="font-family: &quot;verdana&quot; , sans-serif;">Automatización: automatice las defensas para que las organizaciones puedan lograr mediciones confiables, escalables y continuas de su adhesión a los controles y las métricas relacionadas.</span></li></ol><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><h1><span style="font-family: &quot;verdana&quot; , sans-serif;">Cómo empezar:</span></h1><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Los Controles CIS son un número relativamente pequeño de acciones de seguridad priorizadas, bien consensuadas y respaldadas que las organizaciones pueden tomar para evaluar y mejorar su estado de seguridad actual. También cambian la discusión de "qué debería hacer mi empresa" a "qué deberíamos estar haciendo TODOS" para mejorar la seguridad a gran escala.</span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Pero esta no es una solución única para todos, ni en contenido ni en prioridad. Aún debe comprender qué es fundamental para su negocio, datos, sistemas, redes e infraestructuras, y debe considerar las acciones adversas que podrían afectar su capacidad de tener éxito en el negocio o la operación. Incluso una cantidad relativamente pequeña de Controles no se puede ejecutar de una sola vez, por lo que deberá desarrollar un plan de evaluación, implementación y administración de procesos.</span></div><span style="font-family: &quot;verdana&quot; , sans-serif;"><br /></span><br /><div><span style="font-family: &quot;verdana&quot; , sans-serif;">Los Controles CIS 1 a 6 son esenciales para el éxito y deben considerarse entre las primeras cosas que se deben hacer. Nos referimos a estos como "Higiene cibernética": las cosas básicas que debes hacer para crear una base sólida para tu defensa. Este es el enfoque adoptado por el Programa de Diagnóstico y Mitigación Continuo de DHS (CDM), por ejemplo, uno de los socios en los Controles CIS. Un enfoque similar es recomendado por nuestros socios en la Dirección de Señales de Australia (ASD) con sus "Ocho Esenciales"1 - un conjunto de acciones cibernéticas de defensa bien conocidas y demostrablemente efectivas que se relacionan muy de cerca con los Controles CIS. Esto también se corresponde estrechamente con el mensaje del US-CERT (Computer Emergency Readiness Team).</span></div>
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Seguridad Informática">Seguridad Informática</a>
+          
+            <a href="/tags#Controls">Controls</a>
+          
+            <a href="/tags#CISControls">CISControls</a>
+          
+            <a href="/tags#SeguridadInformatica">SeguridadInformatica</a>
+          
+            <a href="/tags#CIS">CIS</a>
+          
+            <a href="/tags#marco de trabajo">marco de trabajo</a>
+          
+            <a href="/tags#metodología">metodología</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Introducci%C3%B3n+a+los+CIS+controls+&url=%2F2020-01-08-introduccion-los-cis-controls%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2020-01-07-instalar-elk-elastic-stack-75/" data-toggle="tooltip" data-placement="top" title="[Logs II] Instalar ELK elastic stack 7.5">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2020-01-09-inventario-de-dispositivos-autorizados/" data-toggle="tooltip" data-placement="top" title="Inventario de Dispositivos autorizados y no autorizados">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+  <div class="disqus-comments">
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+	  var disqus_shortname = 'dotlog-xyz-1';
+	  /* ensure that pages with query string get the same discussion */
+	  var url_parts = window.location.href.split("?");
+	  var disqus_url = url_parts[0];
+	  (function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+  
+  
+
+  
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8701710257778378"
+     crossorigin="anonymous"></script>
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:luisenrique@lnr.pw" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/srenrique" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/srnrique" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Luis Enrique Gastelum
+        &nbsp;&bull;&nbsp;
+      
+      2021
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">dotlog.xyz</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

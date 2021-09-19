@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Creando un sitio Web estático con Jekyll</title>
+
+  
+  <meta name="author" content="Luis Enrique Gastelum">
+  
+
+  <meta name="description" content="Jekyll es una herramienta que nos ayudara a cubrir una necesidad muy puntual, lo usaremos en caso de que necesitemos crear un sitio web estático ya sea para documentar una herramienta, crear un blog o una pagina de comunicados, todo esto de una forma muy fácil y rápida, sin la...">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="dotLog" href="/feed.xml">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="dotLog">
+  <meta property="og:title" content="Creando un sitio Web estático con Jekyll">
+  <meta property="og:description" content="Jekyll es una herramienta que nos ayudara a cubrir una necesidad muy puntual, lo usaremos en caso de que necesitemos crear un sitio web estático ya sea para documentar una herramienta, crear un blog o una pagina de comunicados, todo esto de una forma muy fácil y rápida, sin la...">
+
+  
+  <meta property="og:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Luis Enrique Gastelum">
+  <meta property="og:article:published_time" content="2021-09-09T00:30:59-04:00">
+  <meta property="og:url" content="/2021-09-09-jekyll/">
+  <link rel="canonical" href="/2021-09-09-jekyll/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@srnrique">
+  <meta name="twitter:creator" content="@srnrique">
+
+  <meta property="twitter:title" content="Creando un sitio Web estático con Jekyll">
+  <meta property="twitter:description" content="Jekyll es una herramienta que nos ayudara a cubrir una necesidad muy puntual, lo usaremos en caso de que necesitemos crear un sitio web estático ya sea para documentar una herramienta, crear un blog o una pagina de comunicados, todo esto de una forma muy fácil y rápida, sin la...">
+
+  
+  <meta name="twitter:image" content="/assets/img/avatar-icon.png">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="/">dotLog</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tags">Tags</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar-icon.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "HTB cap", \
+          "category" : "hackingkaliCTFRed Team", \
+          "url"      : "/2021-09-18-hackthebox-cap/", \
+          "date"     : "September 18, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Explotando la vulnerabilidad  Microsoft MSHTML CVE-2021-40444", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-12-explotando-cve-2021-40444/", \
+          "date"     : "September 12, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Publicando nuestro sitio Web", \
+          "category" : "Creador de contenidodockerUbuntu", \
+          "url"      : "/2021-09-09-publicar-nuestro-sitio-web/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Creando un sitio Web estático con Jekyll", \
+          "category" : "Creador de contenidoRubyUbuntu", \
+          "url"      : "/2021-09-09-jekyll/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "SSH Honeypot con docker", \
+          "category" : "", \
+          "url"      : "/2021-09-09-ssh-honeypot-con-docker/", \
+          "date"     : "September  9, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Vulnerando Bludit  v3.9.2", \
+          "category" : "Seguridad InformáticaMalwareSeguridadInformaticaHackhackingbludit", \
+          "url"      : "/2020-07-19-vulnerando-bludit-v392/", \
+          "date"     : "July 19, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "TTY: un toolkit para crear aplicaciones de terminal", \
+          "category" : "ProgramaciónRuby", \
+          "url"      : "/2020-07-11-tty-un-toolkit-para-crear-aplicaciones/", \
+          "date"     : "July 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Capacidad de recuperación de datos ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISRecuperación de datos", \
+          "url"      : "/2020-07-10-capacidad-de-recuperacion-de-datos/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Limitación y control de puertos de red, protocolos y servicios", \
+          "category" : "ControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-10-limitacion-y-control-de-puertos-de-red/", \
+          "date"     : "July 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Defensa contra malware", \
+          "category" : "Seguridad InformáticaControlsCISControlsMalwareSeguridadInformaticaCIS", \
+          "url"      : "/2020-07-09-defensa-contra-malware/", \
+          "date"     : "July  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Protección de correo electrónico y navegador web", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-15-proteccion-de-correo-electronico-y/", \
+          "date"     : "January 15, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Configuración segura para hardware y software en dispositivos móviles, computadoras portátiles, estaciones de trabajo y servidores", \
+          "category" : "Seguridad InformáticaControlsCISControlsCIS", \
+          "url"      : "/2020-01-11-configuracion-segura-para-hardware-y/", \
+          "date"     : "January 11, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Uso controlado de privilegios administrativos", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISmarco de trabajometodología", \
+          "url"      : "/2020-01-10-uso-controlado-de-privilegios/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Gestión continua de vulnerabilidades", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-10-gestion-continua-de-vulnerabilidades/", \
+          "date"     : "January 10, 2020" \
+        }, \
+       \
+        { \
+          "title"    : " Inventario de Software autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaCISControlsSeguridadInformaticaCIS", \
+          "url"      : "/2020-01-09-inventario-de-software-autorizados-y-no/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Inventario de Dispositivos autorizados y no autorizados", \
+          "category" : "Seguridad InformáticaControlsCISControlsCISInventario de Dispositivos", \
+          "url"      : "/2020-01-09-inventario-de-dispositivos-autorizados/", \
+          "date"     : "January  9, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Introducción a los CIS controls ", \
+          "category" : "Seguridad InformáticaControlsCISControlsSeguridadInformaticaCISmarco de trabajometodología", \
+          "url"      : "/2020-01-08-introduccion-los-cis-controls/", \
+          "date"     : "January  8, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs II] Instalar ELK elastic stack 7.5", \
+          "category" : "ubuntuelasticsearchinstalllinuxELK stackelastickibanaelastic stacklogstashl de linux", \
+          "url"      : "/2020-01-07-instalar-elk-elastic-stack-75/", \
+          "date"     : "January  7, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "[Logs I] Iniciando con el análisis de logs", \
+          "category" : "Seguridad InformáticalogsSeguridadInformaticaCISl de linux", \
+          "url"      : "/2020-01-02-logs-i-iniciando-con-el-analisis-de-logs/", \
+          "date"     : "January  2, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Instalar nginx mainline", \
+          "category" : "mainlinenginxSeguridad Informáticaubuntuinstalllinuxl de linux", \
+          "url"      : "/2018-09-03-intalar-nginx-mainline/", \
+          "date"     : "September  3, 2018" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "About me", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page2/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page3/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : ".Log Blog", \
+          "category" : "page", \
+          "url"      : "/page4/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Creando un sitio Web estático con Jekyll</h1>
+          
+
+          
+            <span class="post-meta">Posted on September 9, 2021</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <p>Jekyll es una herramienta que nos ayudara a cubrir una necesidad muy puntual, lo usaremos en caso de que necesitemos crear un sitio web estático ya sea para documentar una herramienta, crear un blog o una pagina de comunicados, todo esto de una forma muy fácil y rápida, sin la necesidad de tener un conocimiento amplio en HTML o CSS y sin la necesidad de herramientas que te ayudan a crear tu página web como wex, Blogger o WordPress.
+Todas estas facilidades las tenemos gracias a que usa markdown y templetes liquid, los cuales son muy fáciles de aprender y de visualizar para los creadores, con Jekyll podremos iniciar a generar contenido con muy poco conocimiento en la herramienta.</p>
+
+<h1 id="quickstart">Quickstart</h1>
+<p>Vamos a ver cómo podríamos iniciar a crear nuestro blog de una forma muy rápida, después de esto nos vamos a ir detallando un poco mas como darle forma a nuestro blog</p>
+<h2 id="prerrequisitos">prerrequisitos</h2>
+<p>Antes de iniciar vamos a necesitar</p>
+<ul>
+  <li>Ruby 2.5.0 o superior</li>
+  <li>RubyGems</li>
+  <li>GCC and make</li>
+</ul>
+
+<h2 id="inicio">Inicio</h2>
+
+<ol>
+  <li>instalar las gemas Jekyll y bundler
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">gem install jekyll bundler
+</span></code></pre></div>    </div>
+  </li>
+  <li>crear el nuevo sitio con Jekyll
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">jekyll new myblog
+</span></code></pre></div>    </div>
+  </li>
+  <li>entramos a nuestro directorio
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">cd myblog
+</span></code></pre></div>    </div>
+  </li>
+  <li>construir el sitio y levantar nuestro servidor local
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">bundle exec Jekyll server
+</span></code></pre></div>    </div>
+  </li>
+  <li>abrir en el navegador la url http://hostname:4000</li>
+</ol>
+
+<h1 id="configurando-nuestro-blog">Configurando nuestro blog</h1>
+
+<p>Jekyll nos creo esta estructura de carpetas</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>▾ myblog/
+├── 404.html
+├── about.markdown
+├── _config.yml
+├── Gemfile
+├── Gemfile.lock
+├── index.markdown
+└─▾ _posts
+  └── 2021-09-10-welcome-to-jekyll.markdown
+</code></pre></div></div>
+
+<p>editamos el archivo _confg.yml</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Welcome to Jekyll!</span>
+<span class="c1">#</span>
+<span class="c1"># This config file is meant for settings that affect your whole blog, values</span>
+<span class="c1"># which you are expected to set up once and rarely edit after that. If you find</span>
+<span class="c1"># yourself editing this file very often, consider using Jekyll's data files</span>
+<span class="c1"># feature for the data you need to update frequently.</span>
+<span class="c1">#</span>
+<span class="c1"># For technical reasons, this file is *NOT* reloaded automatically when you use</span>
+<span class="c1"># 'bundle exec jekyll serve'. If you change this file, please restart the server process.</span>
+<span class="c1">#</span>
+<span class="c1"># If you need help with YAML syntax, here are some quick references for you: </span>
+<span class="c1"># https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml</span>
+<span class="c1"># https://learnxinyminutes.com/docs/yaml/</span>
+<span class="c1">#</span>
+<span class="c1"># Site settings</span>
+<span class="c1"># These are used to personalize your new site. If you look in the HTML files,</span>
+<span class="c1"># you will see them accessed via dotLog, , and so on.</span>
+<span class="c1"># You can create any custom variable you would like, and they will be accessible</span>
+<span class="c1"># in the templates via .</span>
+
+<span class="na">title</span><span class="pi">:</span> <span class="s">Your awesome title</span>
+<span class="na">email</span><span class="pi">:</span> <span class="s">your-email@example.com</span>
+<span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;-</span> <span class="c1"># this means to ignore newlines until "baseurl:"</span>
+  <span class="s">Write an awesome description for your new site here. You can edit this</span>
+  <span class="s">line in _config.yml. It will appear in your document head meta (for</span>
+  <span class="s">Google search results) and in your feed.xml site description.</span>
+<span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># the subpath of your site, e.g. /blog</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># the base hostname &amp; protocol for your site, e.g. http://example.com</span>
+<span class="na">twitter_username</span><span class="pi">:</span> <span class="s">jekyllrb</span>
+<span class="na">github_username</span><span class="pi">:</span>  <span class="s">jekyll</span>
+
+<span class="c1"># Build settings</span>
+<span class="na">theme</span><span class="pi">:</span> <span class="s">minima</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-feed</span>
+
+<span class="c1"># Exclude from processing.</span>
+<span class="c1"># The following items will not be processed, by default.</span>
+<span class="c1"># Any item listed under the `exclude:` key here will be automatically added to</span>
+<span class="c1"># the internal "default list".</span>
+<span class="c1">#</span>
+<span class="c1"># Excluded items can be processed by explicitly listing the directories or</span>
+<span class="c1"># their entries' file path in the `include:` list.</span>
+<span class="c1">#</span>
+<span class="c1"># exclude:</span>
+<span class="c1">#   - .sass-cache/</span>
+<span class="c1">#   - .jekyll-cache/</span>
+<span class="c1">#   - gemfiles/</span>
+<span class="c1">#   - Gemfile</span>
+<span class="c1">#   - Gemfile.lock</span>
+<span class="c1">#   - node_modules/</span>
+<span class="c1">#   - vendor/bundle/</span>
+<span class="c1">#   - vendor/cache/</span>
+<span class="c1">#   - vendor/gems/</span>
+<span class="c1">#   - vendor/ruby/</span>
+</code></pre></div></div>
+
+<h1 id="creado-nuestros-propios-posts">Creado nuestros propios posts</h1>
+<p>En este punto Jekyll nos creó una estructura de carpetas las cuales tiene todos los archivos que necesitaremos para que de forma fácil, pero aun no hemos creado ningún post.
+Los posts los encontramos en la carpeta _post, para crear un post tenemos que agregar un archivo con el siguiente formato:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>YEAR-MONTH-DAY-title.MARKUP
+</code></pre></div></div>
+<p>Donde <code class="language-plaintext highlighter-rouge">YEAR</code> es el año en 4 dígitos, <code class="language-plaintext highlighter-rouge">MONTH</code> es el mes en dos dígitos, <code class="language-plaintext highlighter-rouge">DAY</code> el día en dos dígitos, y <code class="language-plaintext highlighter-rouge">MARKUP</code> es el formato de marcado que usaremos, por ejemplo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2021-09-10-jekyll.markdown
+</code></pre></div></div>
+
+<p>Todo el contenido de los archivos debe de iniciar con el Front Matter que es usado para indicar el layout y la metadata del archivo, después de esto agregamos nuestro texto en markdown, por ejemplo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title:  "Hola Mundo, Jekyll!"
+categories: jekyll ruby ubuntu
+tags:
+- Creador de contenido
+- Ruby
+- Ubuntu
+---
+# Bienvenido hola mundo 
+Mucha suerte en tu nuevo proyecto 
+
+</code></pre></div></div>
+
+<h1 id="conclusiones">Conclusiones</h1>
+<p>Con estos conocimientos ya puedes iniciar tu proyecto y conseguir resultados profesiones muy rápidamente, la finalidad de estas entradas no es que termines de leer siendo un experto en el tema, sino de generar curiosidad en ti para que continues leyendo ya prendiendo por tu cuenta.</p>
+
+<h1 id="next">Next</h1>
+<p>En una nueva entrada estaremos aprendiendo a publicar en una pagina web nuestro sitio.</p>
+
+<h1 id="referencias">Referencias</h1>
+<p><a href="https://github.com/jekyll/jekyll">https://github.com/jekyll/jekyll</a></p>
+
+<p><a href="https://jekyllrb.com/docs/">https://jekyllrb.com/docs/</a></p>
+
+<p><a href="https://yaml.org/">https://yaml.org/</a></p>
+
+<p><a href="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a></p>
+
+<p><a href="https://jekyllrb.com/docs/posts/">https://jekyllrb.com/docs/posts/</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Creador de contenido">Creador de contenido</a>
+          
+            <a href="/tags#Ruby">Ruby</a>
+          
+            <a href="/tags#Ubuntu">Ubuntu</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Creando+un+sitio+Web+est%C3%A1tico+con+Jekyll&url=%2F2021-09-09-jekyll%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2021-09-09-ssh-honeypot-con-docker/" data-toggle="tooltip" data-placement="top" title="SSH Honeypot con docker">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2021-09-09-publicar-nuestro-sitio-web/" data-toggle="tooltip" data-placement="top" title="Publicando nuestro sitio Web">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+  <div class="disqus-comments">
+  <div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+	  var disqus_shortname = 'dotlog-xyz-1';
+	  /* ensure that pages with query string get the same discussion */
+	  var url_parts = window.location.href.split("?");
+	  var disqus_url = url_parts[0];
+	  (function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</div>
+  
+  
+
+  
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8701710257778378"
+     crossorigin="anonymous"></script>
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:luisenrique@lnr.pw" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/srenrique" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/srnrique" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Luis Enrique Gastelum
+        &nbsp;&bull;&nbsp;
+      
+      2021
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">dotlog.xyz</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
